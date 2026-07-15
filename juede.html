@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airbnb | Vacation rentals, cabins, beach houses, & more</title>
+<style>
+  :root{
+    --airbnb-red:#FF385C;
+    --airbnb-red-dark:#D93B57;
+    --ink:#222222;
+    --gray:#717171;
+    --gray-light:#B0B0B0;
+    --line:#EBEBEB;
+    --bg:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* Header */
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:20;}
+  .headerbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 40px;max-width:1760px;margin:0 auto;gap:16px;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:22px;color:var(--airbnb-red);letter-spacing:-.5px;}
+  .logo svg{width:26px;height:26px;}
+
+  .nav-tabs{display:flex;justify-content:center;gap:32px;}
+  .nav-tabs a{font-size:14px;font-weight:600;color:var(--gray);padding:8px 4px;border-bottom:2px solid transparent;}
+  .nav-tabs a.active{color:var(--ink);border-color:var(--ink);}
+  .nav-tabs a:hover{color:var(--ink);}
+
+  .header-right{display:flex;justify-content:flex-end;align-items:center;gap:8px;}
+  .become-host{font-size:14px;font-weight:600;padding:12px 12px;border-radius:22px;white-space:nowrap;}
+  .become-host:hover{background:#F7F7F7;}
+  .icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .icon-btn:hover{box-shadow:0 2px 4px rgba(0,0,0,.18);}
+  .icon-btn svg{width:16px;height:16px;color:var(--ink);}
+  .profile-pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:24px;padding:6px 8px 6px 14px;cursor:pointer;}
+  .profile-pill:hover{box-shadow:0 2px 4px rgba(0,0,0,.18);}
+  .profile-pill svg{width:16px;height:16px;}
+  .profile-pill .avatar{width:28px;height:28px;border-radius:50%;background:#717171;display:flex;align-items:center;justify-content:center;}
+  .profile-pill .avatar svg{width:18px;height:18px;color:#fff;}
+
+  /* Search bar */
+  .search-row{display:flex;justify-content:center;padding:0 40px 24px;}
+  .search-pill{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:40px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;}
+  .search-seg{padding:12px 24px;cursor:pointer;transition:background .15s;}
+  .search-seg:hover{background:#F0F0F0;}
+  .search-seg .label{font-size:12px;font-weight:700;}
+  .search-seg .value{font-size:13px;color:var(--gray);}
+  .search-seg.who{display:flex;align-items:center;gap:12px;padding-right:8px;}
+  .search-btn{width:40px;height:40px;border-radius:50%;background:var(--airbnb-red);display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;margin:6px;}
+  .search-btn svg{width:16px;height:16px;color:#fff;}
+  .divider-v{width:1px;background:var(--line);margin:10px 0;}
+
+  /* Listing sections */
+  .section{padding:32px 40px;max-width:1760px;margin:0 auto;}
+  .section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;}
+  .section-head h2{font-size:22px;margin:0;font-weight:700;}
+  .see-all{font-size:14px;font-weight:600;text-decoration:underline;white-space:nowrap;}
+
+  .carousel{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;}
+  .card{cursor:pointer;}
+  .card .thumb-wrap{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1/1;background:#f2f2f2;}
+  .card .thumb-wrap img{width:100%;height:100%;object-fit:cover;}
+  .badge{position:absolute;top:12px;left:12px;background:#fff;color:var(--ink);font-size:11px;font-weight:700;padding:5px 10px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  .heart{position:absolute;top:12px;right:12px;width:20px;height:20px;color:rgba(0,0,0,.5);}
+  .card .meta{display:flex;justify-content:space-between;margin-top:10px;font-size:14px;}
+  .card .title{font-weight:400;color:var(--ink);}
+  .card .rating{display:flex;align-items:center;gap:3px;flex:0 0 auto;}
+  .card .rating svg{width:11px;height:11px;fill:var(--ink);}
+  .card .sub{color:var(--gray);font-size:14px;margin-top:2px;}
+  .card .price{margin-top:4px;font-size:14px;}
+  .card .price strong{font-weight:600;}
+
+  @media(max-width:1400px){.carousel{grid-template-columns:repeat(5,1fr);}}
+  @media(max-width:1180px){.carousel{grid-template-columns:repeat(4,1fr);}}
+  @media(max-width:900px){.carousel{grid-template-columns:repeat(3,1fr);} .nav-tabs{display:none;}}
+  @media(max-width:640px){.carousel{grid-template-columns:repeat(2,1fr);} .search-seg .label,.search-seg .value{font-size:11px;}}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding-top:32px;margin-top:16px;}
+  .footer-grid{max-width:1760px;margin:0 auto;padding:0 40px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .footer-col h5{font-size:14px;margin:0 0 16px;font-weight:600;}
+  .footer-col ul{list-style:none;margin:0;padding:0;}
+  .footer-col li{margin-bottom:12px;font-size:14px;color:var(--gray);}
+  .footer-col a:hover{text-decoration:underline;}
+  .footer-bottom{max-width:1760px;margin:0 auto;padding:20px 40px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:var(--gray);}
+  .footer-bottom .legal{display:flex;gap:6px;flex-wrap:wrap;}
+  .footer-bottom .right{display:flex;align-items:center;gap:16px;}
+  .socials{display:flex;gap:14px;}
+  .socials svg{width:16px;height:16px;color:var(--gray);}
+
+  @media(max-width:860px){.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headerbar">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 1c-1.4 0-2.6.9-3.2 2.2C9.6 9.8 4 18.4 4 22.8 4 27.9 9.4 31 16 31s12-3.1 12-8.2c0-4.4-5.6-13-8.8-19.6C18.6 1.9 17.4 1 16 1z"/></svg>
+      airbnb
+    </div>
+    <nav class="nav-tabs">
+      <a href="#" class="active">Homes</a>
+      <a href="#">Experiences</a>
+      <a href="#">Services</a>
+    </nav>
+    <div class="header-right">
+      <a class="become-host" href="#">Become a host</a>
+      <div class="icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3.2"/><path d="M12 2a8 8 0 00-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 00-8-8z"/></svg>
+      </div>
+      <div class="profile-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        <div class="avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-9 2.2-9 5v2h18v-2c0-2.8-4.6-5-9-5z"/></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-row">
+    <div class="search-pill">
+      <div class="search-seg">
+        <div class="label">Where</div>
+        <div class="value">Search destinations</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="search-seg">
+        <div class="label">When</div>
+        <div class="value">Add dates</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="search-seg who">
+        <div>
+          <div class="label">Who</div>
+          <div class="value">Add guests</div>
+        </div>
+        <button class="search-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="listings"></main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Get help with a safety issue</a></li>
+        <li><a href="#">AirCover</a></li>
+        <li><a href="#">Travel insurance</a></li>
+        <li><a href="#">Anti-discrimination</a></li>
+        <li><a href="#">Disability support</a></li>
+        <li><a href="#">Cancellation options</a></li>
+        <li><a href="#">Report neighborhood concern</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Hosting</h5>
+      <ul>
+        <li><a href="#">Airbnb your home</a></li>
+        <li><a href="#">Airbnb your experience</a></li>
+        <li><a href="#">Airbnb your service</a></li>
+        <li><a href="#">AirCover for Hosts</a></li>
+        <li><a href="#">Hosting resources</a></li>
+        <li><a href="#">Community forum</a></li>
+        <li><a href="#">Hosting responsibly</a></li>
+        <li><a href="#">Airbnb-friendly apartments</a></li>
+        <li><a href="#">Join a free hosting class</a></li>
+        <li><a href="#">Find a co-host</a></li>
+        <li><a href="#">Refer a host</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Airbnb</h5>
+      <ul>
+        <li><a href="#">2026 Summer Release</a></li>
+        <li><a href="#">Newsroom</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Investors</a></li>
+        <li><a href="#">Gift cards</a></li>
+        <li><a href="#">Airbnb.org emergency stays</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="legal">© 2026 Airbnb, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Your Privacy Choices</a></div>
+    <div class="right">
+      <span>English (US) · $ USD</span>
+      <div class="socials">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 4.9c-.8.4-1.6.6-2.5.7.9-.5 1.6-1.4 1.9-2.4-.8.5-1.8.9-2.7 1.1a4.3 4.3 0 00-7.4 3.9A12.2 12.2 0 012 3.9a4.3 4.3 0 001.3 5.7c-.7 0-1.4-.2-2-.5v.1c0 2.1 1.5 3.8 3.4 4.2-.6.2-1.3.2-1.9.1.5 1.7 2.1 2.9 4 3A8.6 8.6 0 012 18.4 12.2 12.2 0 008.3 20c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .3 2.4.5a4.9 4.9 0 011.8 1.2 4.9 4.9 0 011.2 1.8c.2.4.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 2-.5 2.4a4.9 4.9 0 01-1.2 1.8 4.9 4.9 0 01-1.8 1.2c-.4.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.3-2.4-.5a4.9 4.9 0 01-1.8-1.2 4.9 4.9 0 01-1.2-1.8c-.2-.4-.4-1.2-.5-2.4-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-2 .5-2.4a4.9 4.9 0 011.2-1.8 4.9 4.9 0 011.8-1.2c.4-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zm0 3.1a6.7 6.7 0 100 13.4 6.7 6.7 0 000-13.4zm0 11a4.3 4.3 0 110-8.6 4.3 4.3 0 010 8.6zm7-11.3a1.6 1.6 0 11-3.1 0 1.6 1.6 0 013.1 0z"/></svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fictional sample listing data, styled after the real layout.
+  const sections = [
+    {
+      title: "Popular homes in Hocking Hills State Park",
+      listings: [
+        { title: "Cabin in South Bloomingville", price: 1202, rating: 4.99, favorite: true, img: "https://picsum.photos/seed/hh1/600/600" },
+        { title: "Dome in Logan", price: 1058, rating: 4.97, favorite: true, img: "https://picsum.photos/seed/hh2/600/600" },
+        { title: "Cabin in South Bloomingville", price: 354, rating: 5.0, favorite: true, img: "https://picsum.photos/seed/hh3/600/600" },
+        { title: "Cabin in Logan", price: 816, rating: 4.98, favorite: true, img: "https://picsum.photos/seed/hh4/600/600" },
+        { title: "Cabin in Logan", price: 498, rating: 4.95, favorite: true, img: "https://picsum.photos/seed/hh5/600/600" },
+        { title: "Cabin in South Bloomingville", price: 1182, rating: 4.99, favorite: true, img: "https://picsum.photos/seed/hh6/600/600" }
+      ]
+    },
+    {
+      title: "Great hotels for your next trip",
+      listings: [
+        { title: "Lakeside Suites Chicago", price: 846, rating: 4.77, favorite: false, img: "https://picsum.photos/seed/hotel1/600/600" },
+        { title: "Riverfront Plaza Chicago", price: 1424, rating: 4.84, favorite: false, img: "https://picsum.photos/seed/hotel2/600/600" },
+        { title: "LEVEL Old Town", price: 1147, rating: 5.0, favorite: false, img: "https://picsum.photos/seed/hotel3/600/600" },
+        { title: "The Hollow, Chicago", price: 1077, rating: 4.82, favorite: false, img: "https://picsum.photos/seed/hotel4/600/600" },
+        { title: "Arlo Uptown", price: 1054, rating: 4.83, favorite: false, img: "https://picsum.photos/seed/hotel5/600/600" },
+        { title: "The Emery Hotel", price: 1076, rating: 4.83, favorite: false, img: "https://picsum.photos/seed/hotel6/600/600" }
+      ]
+    },
+    {
+      title: "Available in Gatlinburg this weekend",
+      listings: [
+        { title: "Cabin in Gatlinburg", price: 539, rating: 4.89, favorite: false, img: "https://picsum.photos/seed/gat1/600/600" },
+        { title: "Cabin in Sevierville", price: 598, rating: 4.97, favorite: true, img: "https://picsum.photos/seed/gat2/600/600" },
+        { title: "Cabin in Gatlinburg", price: 739, rating: 5.0, favorite: true, img: "https://picsum.photos/seed/gat3/600/600" },
+        { title: "Tiny home in Sevierville", price: 399, rating: 4.96, favorite: true, img: "https://picsum.photos/seed/gat4/600/600" },
+        { title: "Cabin in Sevierville", price: 766, rating: 4.98, favorite: true, img: "https://picsum.photos/seed/gat5/600/600" },
+        { title: "Cabin in Gatlinburg", price: 536, rating: 4.94, favorite: true, img: "https://picsum.photos/seed/gat6/600/600" }
+      ]
+    },
+    {
+      title: "Stay in Cleveland",
+      listings: [
+        { title: "Apartment in Downtown Cleveland", price: 420, rating: 4.88, favorite: false, img: "https://picsum.photos/seed/cle1/600/600" },
+        { title: "Apartment in Downtown Cleveland", price: 469, rating: 4.95, favorite: true, img: "https://picsum.photos/seed/cle2/600/600" },
+        { title: "Place to stay in Cleveland", price: 275, rating: 5.0, favorite: true, img: "https://picsum.photos/seed/cle3/600/600" },
+        { title: "Apartment in Downtown Cleveland", price: 481, rating: 5.0, favorite: true, img: "https://picsum.photos/seed/cle4/600/600" },
+        { title: "Apartment in Tremont", price: 357, rating: 4.56, favorite: false, img: "https://picsum.photos/seed/cle5/600/600" },
+        { title: "Guest suite in Cleveland", price: 290, rating: 4.86, favorite: true, img: "https://picsum.photos/seed/cle6/600/600" }
+      ]
+    }
+  ];
+
+  const starSvg = '<svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9L22 9.6l-5.5 4.7 1.7 7.2L12 17.8l-6.2 3.7 1.7-7.2L2 9.6l7.1-.7z"/></svg>';
+  const heartSvg = '<svg class="heart" viewBox="0 0 32 32" fill="rgba(0,0,0,.5)" stroke="#fff" stroke-width="2"><path d="M16 28s-11-7-11-15a7 7 0 0113-3.5A7 7 0 0127 13c0 8-11 15-11 15z"/></svg>';
+
+  const main = document.getElementById('listings');
+
+  sections.forEach(sec => {
+    const section = document.createElement('div');
+    section.className = 'section';
+
+    const head = document.createElement('div');
+    head.className = 'section-head';
+    head.innerHTML = `<h2>${sec.title}</h2><a class="see-all" href="#">See all</a>`;
+    section.appendChild(head);
+
+    const carousel = document.createElement('div');
+    carousel.className = 'carousel';
+
+    sec.listings.forEach(l => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="thumb-wrap">
+          <img src="${l.img}" alt="${l.title}" loading="lazy">
+          ${l.favorite ? '<div class="badge">Guest favorite</div>' : ''}
+          ${heartSvg}
+        </div>
+        <div class="meta">
+          <div class="title">${l.title}</div>
+          <div class="rating">${starSvg}<span>${l.rating.toFixed(2)}</span></div>
+        </div>
+        <div class="sub">2 nights</div>
+        <div class="price"><strong>$${l.price.toLocaleString()}</strong> for 2 nights</div>
+      `;
+      carousel.appendChild(card);
+    });
+
+    section.appendChild(carousel);
+    main.appendChild(section);
+  });
+</script>
+
+</body>
+</html>
