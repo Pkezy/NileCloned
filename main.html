@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Undergraduate Courses</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.min.css">
+<link rel="stylesheet" href="chi.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- <div class="sticky-top">
+
+</div>
+<div class="top-bar"></div> -->
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="#">
+      <img src="logo.png" alt="Nile University of Nigeria" class="brand-logo">
+    </a>
+
+    <div class="d-flex align-items-center gap-3 order-lg-3 d-lg-none">
+      <a href="#" class="text-primary fs-4"><i class="bi bi-search"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navContent">
+      <ul class="navbar-nav align-items-lg-center gap-lg-3">
+
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-6">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Vice Chancellor's Welcome Message</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Organization chart</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Staff</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Latest News & Events</a>
+              </div>
+              <div class="col-6 border-start ps-4">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Honoris United Universities</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Alumni</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Nile Community</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Study & Admission</a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-6">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Screen Now (Undergraduate Screening Portal)</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Apply Now (Postgraduate)</a>
+                <a class="d-block py-1 text-primary fw-semibold text-decoration-none" href="undergraduate-courses.html">Undergraduate Courses</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Postgraduate Courses</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">School of Preliminary Studies</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Executive Master of Business Administration (EMBA)</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Nile Consult & Services Ltd.</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Nile Online</a>
+              </div>
+              <div class="col-6 border-start ps-4">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Tuition Fees</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Download Prospectus</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Nile Welcome Booklet</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Scholarships & Discounts</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Academic Calendar</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">SIWES</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Student Information System</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Campus Life</a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-6">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Virtual Tour</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Student Experience</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Student Welfare</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Student Accommodation</a>
+              </div>
+              <div class="col-6 border-start ps-4">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Student Handbook</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Clubs & Activities</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Mystique Magazine</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pay Fees</a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-6">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Returning Students</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">New Students</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Hostel Payment</a>
+              </div>
+              <div class="col-6 border-start ps-4"></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Library</a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-6">
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">University Library</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">WEBPAC – Library Catalogue</a>
+                <a class="d-block py-1 text-dark text-decoration-none" href="#">Institutional Repository</a>
+              </div>
+              <div class="col-6 border-start ps-4"></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero section -->
+<div class="hero">
+  <h1>Undergraduate Courses</h1>
+  <p>With access to Nile University's extensive collections and resources, our undergraduates have discovered new species, patented products, and co-authored original research.</p>
+</div>
+
+<!-- Page content -->
+<div class="container py-4">
+  <p class="text-danger fw-semibold">List of undergraduate courses available at Nile University:</p>
+
+  <div class="search-box position-relative mb-4">
+    <i class="bi bi-search"></i>
+    <input type="text" id="courseSearch" class="form-control" placeholder="Search for undergraduate course">
+  </div>
+
+  <div class="row g-4" id="courseGrid"></div>
+
+  <button class="load-more-btn" id="loadMoreBtn">LOAD MORE..</button>
+</div>
+
+<a href="#" class="btn btn-primary admission-btn shadow">Admission Enquiry? Leave us a message</a>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="footer-logo mb-3">
+          <img src="logo.png" alt="Nile University of Nigeria">
+        </div>
+        <div class="footer-address">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span>Plot 681, Cadastral Zone C-OO, Research & Institution Area, Jabi Airport Bypass, Abuja FCT, 900001 Nigeria</span>
+        </div>
+        <div class="footer-phone">
+          <i class="bi bi-telephone-fill"></i>
+          <span>0916 985 3402</span>
+        </div>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 mb-4">
+        <h6>Quick links</h6>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">University News</a></li>
+          <li><a href="#">Careers At Nile</a></li>
+          <li><a href="#">Undergraduate Screening Portal</a></li>
+          <li><a href="#">Postgraduate Application Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 mb-4">
+        <h6>Study & Admission</h6>
+        <ul>
+          <li><a href="#">School of Preliminary Studies</a></li>
+          <li><a href="undergraduate-courses.html">Undergraduate Courses</a></li>
+          <li><a href="#">Postgraduate Courses</a></li>
+          <li><a href="#">Nile Consult & Services Ltd.</a></li>
+          <li><a href="#">Nile Online</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 mb-4">
+        <h6>Other Links</h6>
+        <ul>
+          <li><a href="#">Student Portal</a></li>
+          <li><a href="#">Staff Portal</a></li>
+          <li><a href="#">Hostel Payment</a></li>
+          <li><a href="#">Nile Blog</a></li>
+          <li><a href="#">Virtual Tour</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Fraud Disclaimer</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Audit Compliance</a>
+      </div>
+      <div>© 2026 Nile University of Nigeria – All Rights Reserved | Honoris United Universities.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+const courses = [
+  { title: "B.Eng. Chemical Engineering", duration: "5 years", img: "chem.png" },
+  { title: "B.Eng. Civil Engineering", duration: "5 years", img: "civ.png" },
+  { title: "B.Eng. Computer Engineering", duration: "5 years", img: "com.png" },
+  { title: "B.Eng. Electrical & Electronics Engineering", duration: "5 years", img: "elec.png" },
+  { title: "B.Eng. Information and Communication Engineering", duration: "5 years", img: "info.png" },
+  { title: "B.Eng. Mechanical Engineering", duration: "5 years", img: "mech.png" },
+  { title: "B.Eng. Mechatronics Engineering", duration: "5 years", img: "mecha.png" },
+  { title: "B.Eng. Petroleum & Gas Engineering", duration: "5 years", img: "petro.png" },
+  { title: "B.Sc. Accounting", duration: "4 years", img: "acc.png" },
+  { title: "B.Sc. Architecture", duration: "4 years", img: "arc.png" },
+  { title: "B.Sc. Banking and Finance", duration: "4 years", img: "bank.png" },
+  { title: "B.Sc. Biochemistry", duration: "4 years", img: "bio.png" },
+  { title: "B.Sc. Biology", duration: "4 years", img: "biol.png" },
+  { title: "B.Sc. Biotechnology", duration: "4 years", img: "biot.png" },
+  { title: "B.Sc. Broadcasting", duration: "4 years", img: "bro.png" },
+  { title: "B.Sc. Building", duration: "5 years", img: "build.png" },
+  { title: "B.Sc. Business Administration", duration: "4 years", img: "bus.png" },
+  { title: "B.Sc. Computer Science", duration: "4 years", img: "comp.png" },
+  { title: "B.Sc. Criminology & Security Studies", duration: "4 years", img: "crim.png" },
+  { title: "B.Sc. Cyber Security", duration: "4 years", img: "cyb.png" },
+];
+
+const PAGE_SIZE = 8;
+let visibleCount = PAGE_SIZE;
+let currentList = courses;
+
+function renderCourses(list) {
+  const grid = document.getElementById('courseGrid');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  grid.innerHTML = '';
+
+  const toShow = list.slice(0, visibleCount);
+
+  toShow.forEach(c => {
+    grid.insertAdjacentHTML('beforeend', `
+      <div class="col-6 col-md-3">
+        <div class="card border-0 course-card">
+          <img src="${c.img}" class="card-img-top rounded" alt="${c.title}">
+          <div class="card-body px-0 pb-0">
+            <p class="course-title mb-1">${c.title}</p>
+            <p class="course-duration mb-0">${c.duration}</p>
+          </div>
+        </div>
+      </div>
+    `);
+  });
+
+  loadMoreBtn.classList.toggle('d-none', visibleCount >= list.length);
+}
+
+renderCourses(currentList);
+
+document.getElementById('loadMoreBtn').addEventListener('click', function() {
+  visibleCount += PAGE_SIZE;
+  renderCourses(currentList);
+});
+
+document.getElementById('courseSearch').addEventListener('input', function() {
+  const term = this.value.toLowerCase();
+  currentList = courses.filter(c => c.title.toLowerCase().includes(term));
+  visibleCount = PAGE_SIZE;
+  renderCourses(currentList);
+});
+const togglerBtn = document.querySelector('.navbar-toggler');
+const navCollapse = document.getElementById('navContent');
+
+navCollapse.addEventListener('shown.bs.collapse', function () {
+  togglerBtn.innerHTML = '<i class="bi bi-x-lg fs-3" style="color:#274a9e"></i>';
+});
+
+navCollapse.addEventListener('hidden.bs.collapse', function () {
+  togglerBtn.innerHTML = '<span class="navbar-toggler-icon"></span>';
+});
+</script>
+</body>
+</html>

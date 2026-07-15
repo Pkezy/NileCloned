@@ -1,0 +1,22 @@
+Study on boostrap break-points
+Responsive Design classes
+Bootstrap container classes
+### NEW ###
+Study on boostrap alert classes
+button classes
+components classes
+carousel classes
+form classes
+
+Git: a version control system
+It helps:
+    - keep track changes
+    - who make the changes
+    -when the changes was made
+Git and GitHub Concepts:
+1. Repository
+2. Stage Environment
+3. Commit
+4. Push
+5. Pull
+6. Foik
