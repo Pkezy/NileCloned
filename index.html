@@ -4,188 +4,24 @@
 <meta charset="UTF-8">
 <title>Undergraduate Courses</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.min.css">
-<style>
-  body { font-family: Arial, sans-serif; background: #fff; }
-
-  .top-bar { background: #274a9e; height: 3px; }
-
-  .navbar-brand .brand-logo { height: 42px; }
-
-  .navbar .nav-link { color: #333; font-weight: 500; }
-  .navbar .nav-link.active { color: #0d6efd; }
-
-  .mega-menu {
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 1.5rem 2rem;
-  }
-
-  .hero {
-    position: relative;
-    background: #1c3f8f;
-    color: #fff;
-    padding: 5rem 3rem;
-    overflow: hidden;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    right: -120px;
-    bottom: -180px;
-    width: 550px;
-    height: 550px;
-    background: repeating-linear-gradient(
-      115deg,
-      rgba(255,255,255,0.07) 0px,
-      rgba(255,255,255,0.07) 14px,
-      transparent 14px,
-      transparent 30px
-    );
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .hero h1 {
-    position: relative;
-    font-weight: 700;
-    font-size: 2.75rem;
-    max-width: 600px;
-  }
-
-  .hero p {
-    position: relative;
-    max-width: 560px;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .search-box { max-width: 500px; }
-  .search-box input { padding-left: 2.25rem; }
-  .search-box .bi-search {
-    position: absolute;
-    left: .75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-  }
-
-  .course-card img { height: 220px; object-fit: cover; width: 100%; }
-  .course-card .course-title { color: #274a9e; font-weight: 600; font-size: .95rem; }
-  .course-card .course-duration { color: #0d6efd; font-size: .85rem; }
-
-  .load-more-btn {
-    background: #6fb92c;
-    border: none;
-    color: #fff;
-    font-weight: 700;
-    letter-spacing: .5px;
-    padding: .9rem 3rem;
-    border-radius: 4px;
-    display: block;
-    margin: 2rem auto 3rem;
-  }
-
-  .load-more-btn:hover { background: #5fa322; color: #fff; }
-  .load-more-btn.d-none { display: none; }
-
-  .admission-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
-
-  .footer {
-    background: #1c3f8f;
-    color: #fff;
-    padding: 3rem 3rem 0;
-  }
-
-  .footer .footer-logo img { height: 50px; }
-
-  .footer .footer-address {
-    display: flex;
-    gap: 12px;
-    margin: 1.5rem 0 1rem;
-    font-size: .9rem;
-    line-height: 1.5;
-  }
-
-  .footer .footer-phone {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: .9rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .footer .social-icons {
-    display: flex;
-    gap: 14px;
-    margin-bottom: 2rem;
-  }
-
-  .footer .social-icons a {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 15px;
-  }
-
-  .footer h6 {
-    font-weight: 700;
-    text-decoration: underline;
-    margin-bottom: 1.2rem;
-    font-size: 1rem;
-  }
-
-  .footer ul { list-style: none; padding: 0; margin: 0; }
-  .footer ul li { margin-bottom: .8rem; font-size: .9rem; }
-  .footer ul li a { color: #fff; text-decoration: none; }
-  .footer ul li a:hover { text-decoration: underline; }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.25);
-    margin-top: 2rem;
-    padding: 1.25rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: space-between;
-    font-size: .82rem;
-  }
-
-  .footer-bottom a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 1.2rem;
-  }
-
-  .footer-bottom a:hover { text-decoration: underline; }
-</style>
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.min.css">
+<link rel="stylesheet" href="chi.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+<!-- <div class="sticky-top">
 
-<div class="top-bar"></div>
+</div>
+<div class="top-bar"></div> -->
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
   <div class="container-fluid px-4">
     <a class="navbar-brand" href="#">
       <img src="logo.png" alt="Nile University of Nigeria" class="brand-logo">
     </a>
 
-    <div class="d-flex align-items-center gap-3 order-lg-3">
+    <div class="d-flex align-items-center gap-3 order-lg-3 d-lg-none">
       <a href="#" class="text-primary fs-4"><i class="bi bi-search"></i></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
         <span class="navbar-toggler-icon"></span>
@@ -388,6 +224,9 @@
       <div>© 2026 Nile University of Nigeria – All Rights Reserved | Honoris United Universities.</div>
     </div>
   </div>
+  <div class="footer-credit">
+    Reg No: HiiT/2026/11369 · Designed by Kalu Chikezirim Obasi
+  </div>
 </footer>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -428,7 +267,7 @@ function renderCourses(list) {
 
   toShow.forEach(c => {
     grid.insertAdjacentHTML('beforeend', `
-      <div class="col-6 col-md-3">
+      <div class="col-6 col-md-3 col-sm-2">
         <div class="card border-0 course-card">
           <img src="${c.img}" class="card-img-top rounded" alt="${c.title}">
           <div class="card-body px-0 pb-0">
@@ -455,6 +294,16 @@ document.getElementById('courseSearch').addEventListener('input', function() {
   currentList = courses.filter(c => c.title.toLowerCase().includes(term));
   visibleCount = PAGE_SIZE;
   renderCourses(currentList);
+});
+const togglerBtn = document.querySelector('.navbar-toggler');
+const navCollapse = document.getElementById('navContent');
+
+navCollapse.addEventListener('shown.bs.collapse', function () {
+  togglerBtn.innerHTML = '<i class="bi bi-x-lg fs-3" style="color:#274a9e"></i>';
+});
+
+navCollapse.addEventListener('hidden.bs.collapse', function () {
+  togglerBtn.innerHTML = '<span class="navbar-toggler-icon"></span>';
 });
 </script>
 </body>
